@@ -23,13 +23,7 @@ docker exec -it superset-duckdb superset init
 - In the dropdown menu, select DuckDB.
 - Then click on  "Connect this database with SQLAlchemy URI string instead".
 - Set the SQLALCHEMY URI to `duckdb:///:memory:` or use a real file path like `duckdb:///superset_home/mydb`.
-
-Alternatively, this can be set at provisioning time:
-```
-docker exec -it superset-duckdb superset set_database_uri \
-    -d DuckDB-memory \
-    -u duckdb:///:memory:
-```
+- In the **Advanced** tab set **Engine Parameters** to `{"connect_args":{"config":{"threads":16}}}`
 
 ## Spatial Queries
     
